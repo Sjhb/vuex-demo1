@@ -1,0 +1,37 @@
+.content {
+  width: 60%;
+  text-align: center;
+  margin: auto;
+}
+.content .thumb{
+  display: inline-block;
+  width: 500px;
+}
+.content .price {
+  padding: 0;
+  margin-right: 5px;
+  vertical-align: baseline;
+  font-size: 26px;
+  font-weight: 700;
+  font-family: Tahoma,Arial,Helvetica,sans-serif;
+  color: #F40;
+}
+.title .brand {
+  margin-top: 10px;
+}
+.content .button {
+  margin-top: 15px;
+  width: 180px;
+  color: #FFF;
+  border-color: #F40;
+  background: #F40;
+  cursor: pointer;
+  height: 38px;
+  text-align: center;
+  font-family: "Hiragino Sans GB","microsoft yahei",sans-serif;
+  font-size: 16px;
+  line-height: 38px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 2px;
+}

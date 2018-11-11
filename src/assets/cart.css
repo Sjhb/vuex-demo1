@@ -1,0 +1,14 @@
+.cart {
+  width: 60%;
+  text-align: left;
+  margin: auto;
+}
+.cart .item {
+  margin-top: 20px;
+}
+.cart .item p {
+  display: inline-block;
+}
+.cart .item p+p {
+  margin-left: 20px;
+}
