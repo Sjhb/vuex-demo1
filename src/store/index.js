@@ -7,7 +7,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     products: [],
-    cart: new Map()
+    cart: {}
   },
   mutations: {
     SET_PRODUCT (state, products) {
@@ -16,18 +16,22 @@ export default new Vuex.Store({
     ADD_PRODUCT (state, prod) {
       let cart = state.cart
       let prodId = prod.id
-      if (cart.has(prodId)) {
-        let oldProd = cart.get(prodId)
-        state.cart.set(prodId, Object.assign({}, {
-          num: ++oldProd.num,
-          money: oldProd.money + Number(prod.price),
-          ...prod
-        }))
+      if (cart[prodId]) {
+        let oldProd = cart[prodId]
+        state.cart = Object.assign({}, state.cart, {
+          [prodId]: {
+            num: ++oldProd.num,
+            money: oldProd.money + Number(prod.price),
+            ...prod
+          }
+        })
       } else {
-        state.cart.set(prodId, {
-          num: 1,
-          money: Number(prod.price),
-          ...prod
+        state.cart = Object.assign({}, state.cart, {
+          [prodId]: {
+            num: 1,
+            money: Number(prod.price),
+            ...prod
+          }
         })
       }
     }
@@ -37,7 +41,7 @@ export default new Vuex.Store({
       return prodId => state.products.find(prod => Number(prod.id) === Number(prodId))
     },
     prodInCart: state => {
-      return () => [...state.cart.values()]
+      return Object.values(state.cart)
     }
   },
   actions: {

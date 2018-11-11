@@ -37,6 +37,7 @@ export default {
     }
   },
   created () {
+    console.log(mapActions(['getProducts']))
     if (this.products.length === 0) {
       this.getProducts()
     }

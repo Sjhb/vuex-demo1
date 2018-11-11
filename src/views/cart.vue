@@ -15,7 +15,7 @@ export default {
   name: 'cart',
   computed: {
     products () {
-      return this.$store.getters.prodInCart()
+      return this.$store.getters.prodInCart
     }
   }
 }
